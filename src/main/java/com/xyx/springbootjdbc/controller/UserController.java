@@ -43,11 +43,10 @@ public class UserController {
         }
     }
 
+
+    //预更新查询用户
     @GetMapping("/preUpdateUser")
     public String preUpdateUser(Integer id, Model model){
-        String name = "王二";
-        // \u000dname = "王三";
-        System.out.println(name);
         try{
             User user = this.userService.findUserById(id);
             model.addAttribute("user", user);
@@ -58,4 +57,13 @@ public class UserController {
         return "updateUser";
     }
 
+
+    /**
+     * 修改用户
+     * @param user
+     */
+    @PostMapping("/updateUser")
+    public void updateUser(User user){
+        System.out.println(user);
+    }
 }
