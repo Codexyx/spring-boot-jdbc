@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -18,5 +20,16 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void addUser(User user) {
         this.userDao.insertUser(user);
+    }
+
+    //查询全部用户
+    @Override
+    public List<User> findUserAll() {
+        return this.userDao.findUserAll();
+    }
+
+    @Override
+    public User findUserById(Integer id) {
+        return this.userDao.findUserById(id);
     }
 }
