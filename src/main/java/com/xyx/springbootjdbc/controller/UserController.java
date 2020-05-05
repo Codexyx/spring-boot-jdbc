@@ -63,7 +63,25 @@ public class UserController {
      * @param user
      */
     @PostMapping("/updateUser")
-    public void updateUser(User user){
-        System.out.println(user);
+    public String updateUser(User user){
+        try {
+            this.userService.updateUserById(user);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
+        return "redirect:/success";
+    }
+
+    //删除用户
+    @GetMapping("/deteleUser")
+    public String deteleUser(Integer id){
+        try {
+            this.userService.deteleUser(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
+        return "redirect:/success";
     }
 }

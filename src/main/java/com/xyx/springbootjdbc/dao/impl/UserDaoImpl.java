@@ -65,4 +65,22 @@ public class UserDaoImpl implements UserDao {
         });
         return user;
     }
+
+    @Override
+    public void updateUserById(User user) {
+        String sql = "update user set name = ?, age = ?, sex = ? where id = ?";
+        this.jdbcTemplate.update(
+                sql,
+                user.getName(),
+                user.getAge(),
+                user.getSex(),
+                user.getId()
+        );
+    }
+
+    @Override
+    public void deteleUser(Integer id) {
+        String sql = "DELETE from user where id = " + id;
+        this.jdbcTemplate.batchUpdate(sql);
+    }
 }

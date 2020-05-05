@@ -10,4 +10,8 @@ public interface UserService {
     List<User> findUserAll();
 
     User findUserById(Integer id);
+
+    void updateUserById(User user);
+
+    void deteleUser(Integer id);
 }

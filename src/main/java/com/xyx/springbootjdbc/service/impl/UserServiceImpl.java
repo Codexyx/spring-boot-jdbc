@@ -32,4 +32,16 @@ public class UserServiceImpl implements UserService {
     public User findUserById(Integer id) {
         return this.userDao.findUserById(id);
     }
+
+    @Override
+    @Transactional
+    public void updateUserById(User user) {
+        this.userDao.updateUserById(user);
+    }
+
+    @Override
+    @Transactional
+    public void deteleUser(Integer id) {
+        this.userDao.deteleUser(id);
+    }
 }
